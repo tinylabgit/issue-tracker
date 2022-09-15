@@ -32,7 +32,7 @@ Issue : <br><textarea style="resize:none;width:600px;height:400px;font-family:sa
 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('리캡챠 비밀키', {action: 'issuepage'})
+grecaptcha.execute('리캡챠 공개키', {action: 'issuepage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
