@@ -1,0 +1,10 @@
+<?php
+    include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php');
+    if($_SESSION['login']=='false'){
+        header('Location:/memner/login');
+    }
+    else{
+        구현중
+    }
+    include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.php');
+?>

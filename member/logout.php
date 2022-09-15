@@ -1,0 +1,10 @@
+<?php
+    include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php');
+    if($_SESSION['login']=='false'){
+        header('Location:/member/login');
+    }
+    else{
+        $_SESSION['login']='false';
+        unset($_SESSION['username']);
+        header('Location:/member/login');
+    }
