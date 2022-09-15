@@ -17,7 +17,7 @@ Unknown Issue!<br>
 ?>
         <h2>Issues</h2><hr>
 <?php
-        if($_SESSION['username']=='nawega'){
+        if($_SESSION['username']=='admin'){
 ?>
 <form method="post" action="/issues/edit" style=display:inline;">
 <input type="hidden" name="num" value="<?php echo $id;?>">
