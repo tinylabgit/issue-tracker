@@ -3,13 +3,12 @@
         header('Location:/member/login');
     }
 ?>
-<script async defer src="https://www.google.com/recaptcha/api.js?render=6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv&t=<?php echo $no_cache;?>" type="text/javascript"></script>
+<script async defer src="리캡챠 js파일 호출하세요.?<?php echo $no_cache;?>" type="text/javascript"></script>
 <?php
     if(isset($_POST['title'])){
         $captcha=$_POST['g-recaptcha-response'];
-        $secretKey = '6Le1TrEhAAAAAJB6av7oZhqLK2BIBXE2C1wIlV6y';
-        $header=apache_request_headers();
-        $ip=$header['CF-Connecting-IP'];
+        $secretKey = '리캡챠 비밀키';
+        $ip=$_SERVER['REMOTE_ADDR'];
         $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
         $response=json_decode($response,true);
         if($response['success']=='1' and $response['score']>'0.6'){
@@ -33,7 +32,7 @@ Issue : <br><textarea style="resize:none;width:600px;height:400px;font-family:sa
 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv', {action: 'issuepage'})
+grecaptcha.execute('리캡챠 비밀키', {action: 'issuepage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
