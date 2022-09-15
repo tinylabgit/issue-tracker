@@ -4,13 +4,12 @@
         header('Location:/');
     }
 ?>
-<script async defer src="https://www.google.com/recaptcha/api.js?render=6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv&t=<?php echo $no_cache;?>" type="text/javascript"></script>
+리캡챠 호출하세요.
 <?php
     if(isset($_POST['id'])){
         $captcha=$_POST['g-recaptcha-response'];
-        $secretKey = '6Le1TrEhAAAAAJB6av7oZhqLK2BIBXE2C1wIlV6y';
-        $header=apache_request_headers();
-        $ip=$header['CF-Connecting-IP'];
+        $secretKey = '리캡챠 비밀키;
+        $ip=$_SERVER['REMOTE_ADDR'];
         $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
         $response=json_decode($response,true);
         if($response['success']=='1' and $response['score']>'0.6'){
@@ -32,7 +31,7 @@ Password : <input type="password" name="pw" placeholder="Enter Your Password"><b
 <button type="submit" name="submit">Login</button>
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv', {action: 'loginpage'})
+grecaptcha.execute('캡차 공개키', {action: 'loginpage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
@@ -55,7 +54,7 @@ Password : <input type="password" name="pw" placeholder="Enter Your Password" au
 <button type="submit" name="submit">Login</button>
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv', {action: 'loginpage'})
+grecaptcha.execute('캡차 공개키', {action: 'loginpage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
@@ -75,7 +74,7 @@ Password : <input type="password" name="pw" placeholder="Enter Your Password" au
 <button type="submit" name="submit">Login</button>
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv', {action: 'loginpage'})
+grecaptcha.execute('공개키', {action: 'loginpage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
@@ -96,7 +95,7 @@ Password : <input type="password" name="pw" placeholder="Enter Your Password"><b
 <button type="submit" name="submit">Login</button>
 <script type="text/javascript">
 grecaptcha.ready(function() {
-grecaptcha.execute('6Le1TrEhAAAAAFsO0wRJsgK4woY9AcnoOdFa5Ekv', {action: 'loginpage'})
+grecaptcha.execute('공개키', {action: 'loginpage'})
 .then(function(token) {
 document.getElementById('g-recaptcha-response').value=token;
 });
