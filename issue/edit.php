@@ -1,6 +1,6 @@
 <?php
     $id=$_POST['num'];
-    if($_SESSION['login']=='true' and $_SESSION['username']=='nawega'){
+    if($_SESSION['login']=='true' and $_SESSION['username']=='admin'){
     if(isset($_POST['title'])){
         $_POST['issue']=str_replace('}','\\}',str_replace('{','\\{',str_replace('"','\\"',$_POST['issue'])));
         $_POST['title']=str_replace('}','\\}',str_replace('{','\\{',str_replace('"','\\"',$_POST['title'])));
